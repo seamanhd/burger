@@ -16,6 +16,7 @@ var orm = {
       console.log(result);
     });
   },
+  //where id = ? update boolean to true
   updateOne: function() {
     var queryString = "";
     connection.query(queryString, [], function(err, result) {
