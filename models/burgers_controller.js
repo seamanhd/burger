@@ -7,9 +7,9 @@ var burger = require("../models/burger.js");
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
-  burger.selectAll(function(data) {
+  burger.all(function(data) {
     var hbsObject = {
-      burgere: data
+      burger: data
     };
     console.log(hbsObject);
     res.render("index", hbsObject);
@@ -18,22 +18,22 @@ router.get("/", function(req, res) {
 
 router.post("/", function(req, res) {
   burger.insertOne([
-    "burger_name"
+    "burger_name", "devoured"
   ], [
-    req.body.name
+    req.body.name, FALSE
   ], function() {
     res.redirect("/");
   });
 });
 
-/*router.put("/", function(req, res) {
+router.put("/", function(req, res) {
 
   burger.updateOne({
     //change boolean here?
   }, function() {
     res.redirect("/");
   });
-});*/
+});
 
 // Export routes for server.js to use.
 module.exports = router;
