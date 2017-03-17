@@ -21,9 +21,10 @@ var orm = {
 
   
   //where id = ? update boolean to true
-  updateOne: function() {
-    var queryString = "";
-    connection.query(queryString, [], function(err, result) {
+  updateOne: function(bugers, devoured, TRUE, id, inputID) {
+    var queryString = "UPDATE ?? SET ? = ? WHERE ? = ?";
+    console.log(queryString);
+    connection.query(queryString, [burgers, devoured, TRUE, id, inputID], function(err, result) {
       console.log("orm update: " + result);
     });
   }
