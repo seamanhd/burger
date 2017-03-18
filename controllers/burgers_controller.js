@@ -11,15 +11,21 @@ router.get("/", function(req, res){
 });
 
 router.get("/burgers", function(req, res) {
-  burger.all(function(data) {
-    var hbsObject = {
-      burger: data
-    };
-    console.log(hbsObject);
-    res.render("index", hbsObject);
-  }); 
-  //res.render("Hello");
-});
+  burger.all(function(burgerData) {
+    res.render("index", { burgers: burgerData });  // *********************  You had a different variable here (instead of 'burgers'; this var has to match the one you call in your index.handlebars (line 5), in the #each loop) ********************* 
+  });
+})
+
+// router.get("/burgers", function(req, res) {
+//   burger.all(function(data) {
+//     var hbsObject = {
+//       burger: data
+//     };
+//     console.log(hbsObject);
+//     res.render("index", hbsObject);
+//   });
+//   //res.render("Hello");
+// });
 
 /*router.post("/", function(req, res) {
   burger.insertOne([

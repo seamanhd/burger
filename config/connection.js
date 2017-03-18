@@ -8,7 +8,7 @@ var connection = mysql.createConnection({
   user: "root",
 
   // Your password
-  password: "root",
+  password: "lgfcuapsql",
   database: "burgers_DB"
 });
 
