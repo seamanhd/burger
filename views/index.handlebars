@@ -1,6 +1,7 @@
 <h1>Eat-A-Burger!</h1>
 
-
+<div id="left">
+<h2> Menu </h2>
 <ul>
   {{#each burgers}}
     {{#unless this.devoured}}
@@ -15,7 +16,9 @@
     {{/unless}}
   {{/each}}
 </ul>
+</div>
 
+<div id="right">
 <h2>You already ate these!</h2>
 
 <ul>
@@ -29,15 +32,18 @@
     {{/if}}
   {{/each}}
 </ul>
+</div>
 
+<div id="bottom">
 <h2>Add a Burger</h2>
 <form class="create-update-form" action="/" method="POST">
 
   <div class="form-group">
     <label for="newBurger">Type of Burger:</label>
-    <input type="text" id="newBurger" name="name">
+    <input type="text" id="newBurger" name="inputName">
   </div>
 
 
   <button type="submit">Add Burger</button>
 </form>
+</div>

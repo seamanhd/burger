@@ -13,12 +13,17 @@ var orm = {
   },
 
   //how to capture user input? maybe here is not the right step to input? just put in dummies for now - will be vars somewhere else (e.g. "inputName, FALSE")
-  insertOne: function(burgers, burger_name, devoured, inputName, FALSE) {
-    var queryString = "INSERT INTO ??(?, ?) VALUES (?, ?)";
+  insertOne: function(inputName, cb) {
+    var queryString = "INSERT INTO burgers(burger_name, devoured) VALUES (?, false)";
     console.log(queryString);
-    connection.query(queryString, [burgers, burger_name, devoured, inputName, FALSE], function(err, result) {
-      console.log("orm insert" + result);
+    connection.query(queryString, [inputName], function(err, result) {
+        console.log("orm insert" + result);
+         cb(result);
     });
+
+
+  
+
   },
 
 

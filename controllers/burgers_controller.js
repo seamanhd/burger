@@ -27,12 +27,9 @@ router.get("/burgers", function(req, res) {
 //   //res.render("Hello");
 // });
 
-/*router.post("/", function(req, res) {
-  burger.insertOne([
-    "burger_name", "devoured"
-  ], [
-    req.body.name, FALSE
-  ], function() {
+router.post("/", function(req, res) {
+  burger.insertOne(req.body.name, function(result){
+    console.log(result);
     res.redirect("/");
   });
 });
@@ -44,7 +41,7 @@ router.put("/", function(req, res) {
   }, function() {
     res.redirect("/");
   });
-});*/
+});
 
 // Export routes for server.js to use.
 module.exports = router;

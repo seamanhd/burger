@@ -7,7 +7,7 @@ var burger = {
     });
   },
   // What else do I need to put in here?
-  insertOne: function(cb) {
+  insertOne: function(inputName, cb) {
     orm.insertOne("burgers", function(res) {
       cb(res);
     });
